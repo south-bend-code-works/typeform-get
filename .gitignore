@@ -1,0 +1,10 @@
+bin
+include
+lib
+
+*.pyc
+*.sw[op]
+*.zip
+
+.Python
+.DS_Store
