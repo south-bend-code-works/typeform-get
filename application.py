@@ -24,6 +24,7 @@ def typeform_get():
   return jsonify(**context)
 
 @application.route("/yelp", methods=["GET"])
+@crossdomain(origin='*')
 def yelp_search():
   # read API keys
   if "consumer_key" in os.environ:
