@@ -8,3 +8,5 @@ lib
 
 .Python
 .DS_Store
+
+config_secret.json
