@@ -43,7 +43,7 @@ def yelp_search():
   client = Client(auth)
 
   params = {
-    'term': 'food',
+    'term': request.args.get('category', 'food'),
     'lang': 'en'
   }
   response = client.search('South Bend, IN', **params)
