@@ -48,7 +48,17 @@ def yelp_search():
   }
   response = client.search('South Bend, IN', **params)
   businesses = response.businesses
-  results = {b.name: {"business_url": b.url, "image_url": b.image_url, "snippet": b.snippet_text} for b in businesses}
+  results = {
+    b.name: {
+      "business_url": b.url, 
+      "image_url": b.image_url, 
+      "snippet": b.snippet_text,
+      "location": {
+        "latitude": b.location.coordinate.latitude,
+        "longitude": b.location.coordinate.longitude,
+      },
+    } for b in businesses
+  }
   return jsonify(**results)
 
 if __name__ == "__main__":
